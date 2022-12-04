@@ -98,7 +98,8 @@ function changeDisplay(){
 
 function screenFunction(){
     
-
+     slide=0;
+     
     if(window.innerWidth > 1150){
    
      number =5
