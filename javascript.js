@@ -230,4 +230,56 @@ courseMove.forEach((item)=>{
 })
 
 
+// movingMenu
 
+let nav = document.getElementById("nav");
+let moveMenu = document.getElementById("moveMenu");
+let movingP = document.querySelector("#moveMenu p");
+let movingButton = document.querySelector("#moveMenu button");
+
+function movingMenu(e){
+    let element = e.target; 
+    let mainElement = e.currentTarget.getBoundingClientRect();
+    let elementProp = e.target.getBoundingClientRect();
+    if(window.innerWidth > 800){
+    if(element.classList.contains("nav-text") || element.classList.contains("fa-shopping-cart") ){
+        let right =parseInt(mainElement.width) - parseInt(elementProp.right);
+        moveMenu.style.right = right + "px";
+       moveMenu.style.display = "block";
+
+       if(element.classList.contains("nav-text")){
+        movingP.textContent =element.dataset.content;
+        movingButton.textContent =element.dataset.button;
+
+   
+       }
+
+
+    }else if(element.id === "moveMenu" || element.parentElement === moveMenu){
+
+       
+       
+    }else{
+        moveMenu.style.display = "none";
+    }
+
+  }else{
+    
+  }
+
+
+}
+
+function movingDisplay(){
+    moveMenu.style.display= "block";
+   
+}
+
+function movingNone(){
+    moveMenu.style.display= "none";
+}
+
+moveMenu.addEventListener("mouseenter",movingDisplay)
+moveMenu.addEventListener("mouseleave",movingNone)
+
+nav.addEventListener("mouseover",movingMenu)
