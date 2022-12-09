@@ -122,9 +122,10 @@ button{
 }
 
 .fa-shopping-cart{
-    display: flex;
-    align-items: center;
+    display: flex !important;
+    align-items: center !important;
     padding: 5px;
+    
 }
 
 
@@ -1024,4 +1025,17 @@ footer{
     background-color: black;
     color: white;
     padding:13px;
+}
+
+
+.pmove{
+ font-weight: 500 !important;
+ font-size: 15px !important;
+}
+
+.buttonMove{
+    background-color: transparent !important;
+    color: blue !important;
+    border: none !important;
+    font-weight: bold;
 }

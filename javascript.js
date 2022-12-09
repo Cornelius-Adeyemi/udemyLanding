@@ -5,7 +5,7 @@ const courseHeader = document.getElementById("courseHeader");
 const coursePreview = document.getElementById("coursePreview")
 const courseButton = document.getElementById("courseButton")
 let courseInTitle = "python";
-
+let cartNumber = 0;
 const courseContainer = document.getElementById("courseCardList");
 let number;
 let courseInView = course.find((item)=>{
@@ -248,10 +248,20 @@ function movingMenu(e){
        moveMenu.style.display = "block";
 
        if(element.classList.contains("nav-text")){
+        movingP.classList.remove("pmove");
+        movingButton.classList.remove("buttonMove");
         movingP.textContent =element.dataset.content;
         movingButton.textContent =element.dataset.button;
 
    
+       }else{
+        movingP.classList.add("pmove");
+        movingButton.classList.add("buttonMove");
+         if(cartNumber ===0){
+            movingP.textContent = "Your cart is empty" ;
+            movingButton.textContent ="keep shopping";
+         }
+
        }
 
 
@@ -264,7 +274,7 @@ function movingMenu(e){
     }
 
   }else{
-    
+
   }
 
 
