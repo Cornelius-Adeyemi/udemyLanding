@@ -110,7 +110,24 @@ button{
 
 #cart-font{
     margin: 0 10px;
+    
+    height: 100%;
+    display:flex;
+    align-items: center;
 }
+
+#cart-font i{
+    height: 100%;
+    
+}
+
+.fa-shopping-cart{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+
 
 #button-container > span{
     border:1px solid black;
@@ -154,6 +171,7 @@ button{
 
 #mysearch{
     display:none;
+    
 }
 
 @media screen and (max-width:1080px) {
@@ -204,7 +222,8 @@ button{
 
 #mysearch{
     display:inherit;
-    display: inline-block;
+    display: flex;
+    align-items: center;
     padding: 0 15px;
 }
 
