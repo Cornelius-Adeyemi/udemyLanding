@@ -184,6 +184,16 @@ button{
 }
 
 
+@media screen and (max-width:920px) {
+    
+    .nav-text{
+        display: none;
+    }
+
+    
+}
+
+
 
 @media screen and (max-width:800px) {
   
