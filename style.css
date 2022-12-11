@@ -374,6 +374,7 @@ button{
     padding:25px;
    
     overflow: hidden;
+    position: relative;
 }
 
 
@@ -853,7 +854,9 @@ footer{
  }
 
  /* cardList */
-
+#control{
+    position: relative;
+}
  #courseCardList{
    margin-top: 20px;
     display: flex;
@@ -862,7 +865,7 @@ footer{
     grid-template-rows: 1fr;
     column-gap: 15px; */
     position: relative;
-    z-index: 100;
+  
     
  }
 
@@ -968,18 +971,20 @@ footer{
     height: 50px;
     border-radius: 50%;
     border:0.5px solid white;
+    z-index: 200;
 }
 
 #lessThan{
     position: absolute;
-    left:0;
+    left:0%;
     transform: translateX(-45%);
     top:22%;
+    
     
 }
 #greaterThan{
     position: absolute;
-    right:0;
+    right:0%;
     top:22%;
     transform: translateX(45%);
 }

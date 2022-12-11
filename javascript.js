@@ -68,8 +68,9 @@ courseCard()
 
 let slide =0;
 let cardArray = document.querySelectorAll("#eachCard");
+
 function changeDisplay(){
-    
+
     cardArray.forEach((item,index)=>{
         if(index < slide){
           item.classList.add("slideLeft");
@@ -124,72 +125,9 @@ function screenFunction(){
  screenFunction()
 
  
-
- // to fill in the header information 
-
-function fillInData(){
-    
-    courseHeader.textContent = courseInView.header;
-    coursePreview.textContent= courseInView.preview;
-    courseButton.textContent= courseInView.botton;
-    screenFunction();
-}
-
-
-fillInData();
-console.log("here",number)
-// to add eventlistener to the list naviagetion 
-
-listItems.forEach((item)=>{
-    item.addEventListener("click", chnageCourseInTitle);
-    changeFocus()
-})
-
-// change course title
-
-function chnageCourseInTitle(e){
-    if(e.target.textContent.toLowerCase()===courseInTitle){
-    
-    }else{
- courseInTitle = e.target.textContent.toLowerCase();
- changeCourseInView();
- changeFocus()
- fillInData()
-    }
-}
-// change course in view
-function changeCourseInView(e){
-
-    courseInView = course.find((item)=>{
-        return item.type.toLowerCase() === courseInTitle;
-    })
-
-}
-
-
-//change focus of the list 
-function changeFocus(){
-    listItems.forEach((item)=>{
-        if(item.textContent.toLowerCase() === courseInTitle){
-            
-            item.style.color = "rgba(0, 0, 0,1)"
-        }else{
-            item.style.color = "rgba(0, 0, 0,0.6)"
-        }
-    })
-}
-
-
-
-
-
-
+// coursemove function
 let greater = document.getElementById("greaterThan");
 let lessThan = document.getElementById("lessThan");
-
-window.addEventListener("resize", screenFunction)
-
-
 
 function increaseSlide(e){
   let element = (e)?e.currentTarget : {};
@@ -215,10 +153,80 @@ function increaseSlide(e){
  }else if(slide === cardArray.length - (number - 1)- 1 ){
     greater.classList.add("deactivate");
  }
- console.log("slide",slide, cardArray.length, cardArray.length - (number - 1)- 1)
+ 
  changeDisplay()
     
 }
+
+
+ // to fill in the header information 
+
+function fillInData(){
+    
+    courseHeader.textContent = courseInView.header;
+    coursePreview.textContent= courseInView.preview;
+    courseButton.textContent= courseInView.botton;
+    screenFunction();
+}
+
+
+fillInData();
+
+// to add eventlistener to the list naviagetion 
+
+listItems.forEach((item)=>{
+    item.addEventListener("click", chnageCourseInTitle);
+    changeFocus()
+})
+
+// change course title
+
+function chnageCourseInTitle(e){
+    if(e.target.textContent.toLowerCase()===courseInTitle){
+    
+    }else{
+ courseInTitle = e.target.textContent.toLowerCase();
+ 
+ changeCourseInView();
+ increaseSlide()
+ changeFocus()
+ fillInData()
+ increaseSlide()
+    }
+}
+// change course in view
+function changeCourseInView(e){
+
+    courseInView = course.find((item)=>{
+        return item.type.toLowerCase() === courseInTitle;
+    })
+
+    courseContainer.innerHTML ="";
+    courseCard();
+    cardArray = document.querySelectorAll("#eachCard");
+
+}
+
+
+//change focus of the list 
+function changeFocus(){
+    listItems.forEach((item)=>{
+        if(item.textContent.toLowerCase() === courseInTitle){
+            
+            item.style.color = "rgba(0, 0, 0,1)"
+        }else{
+            item.style.color = "rgba(0, 0, 0,0.6)"
+        }
+    })
+}
+
+
+
+
+
+window.addEventListener("resize", screenFunction)
+
+
 
 increaseSlide()
 
