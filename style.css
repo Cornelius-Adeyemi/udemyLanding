@@ -38,6 +38,7 @@ button{
     vertical-align: middle;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .nav-text{
@@ -47,6 +48,7 @@ button{
     vertical-align: middle;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 #logo{
