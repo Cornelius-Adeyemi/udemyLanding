@@ -275,7 +275,7 @@ function movingMenu(e){
 
     }else if(element.id === "moveMenu" || element.parentElement === moveMenu){
 
-       
+        moveMenu.style.display = "block";
        
     }else{
         moveMenu.style.display = "none";
@@ -293,11 +293,21 @@ function movingDisplay(){
    
 }
 
-function movingNone(){
-    moveMenu.style.display= "none";
+function movingNone(e){
+    
+        moveMenu.style.display= "none";
+    
+}
+
+function closeMenu(e){
+
+   
+moveMenu.style.display= "none";
+     
 }
 
 moveMenu.addEventListener("mouseenter",movingDisplay)
 moveMenu.addEventListener("mouseleave",movingNone)
 
-nav.addEventListener("mouseover",movingMenu)
+nav.addEventListener("mouseover",movingMenu);
+nav.addEventListener("mouseleave",closeMenu)

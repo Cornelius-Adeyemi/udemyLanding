@@ -1019,11 +1019,13 @@ footer{
     
     position: absolute;
     background-color: white;
-    top:64px;
+    top:60px;
     z-index: 200;
     display: none;
     text-align: center;
     padding: 10px;
+    box-sizing: content-box;
+    border-top:4px solid rgba(0, 0, 0,0.1);
     
 }
 
