@@ -608,6 +608,15 @@ button{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, auto);
+    overflow: hidden;
+}
+
+#imageDiv{
+    background-color: red;
+}
+
+#imageDiv img{
+    /* width: 100%; */
 }
     
 }
