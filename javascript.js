@@ -1,13 +1,18 @@
 
-import {course} from "./data.js"
+import { course, category } from "./data.js";
 let listItems = document.querySelectorAll("#firstSection li");
 const courseHeader = document.getElementById("courseHeader");
 const coursePreview = document.getElementById("coursePreview")
 const courseButton = document.getElementById("courseButton")
 let courseInTitle = "python";
 let cartNumber = 0;
+let submenuData;
 const courseContainer = document.getElementById("courseCardList");
 let number;
+
+let categoryOne = document.querySelector("#categoryMenuOne");
+let categoryMenu = document.getElementById("categoryMenu");
+
 let courseInView = course.find((item)=>{
     return item.type.toLowerCase() === courseInTitle;
 });
@@ -277,8 +282,16 @@ function movingMenu(e){
 
         moveMenu.style.display = "block";
        
+    }else if(element.classList.contains("category")){
+     let left = parseInt(elementProp.left);
+     categoryMenu.style.display="flex";
+     categoryMenu.style.left =left + "px";
+    
+    }else if(element.id==="categoryMenu" || element.id==="categoryMenuOne" || element.parentElement.id==="categoryMenuOne" || element.id==="categoryMenuTwo" || element.parentElement.id==="categoryMenuTwo" || element.classList.contains("categoryListItem") ||  element.classList.contains("spanOne") ||  element.classList.contains("spanTwo")|| element.classList.contains("fa-duotone") ){
+
     }else{
         moveMenu.style.display = "none";
+        categoryMenu.style.display= "none";
     }
 
   }else{
@@ -303,6 +316,7 @@ function closeMenu(e){
 
    
 moveMenu.style.display= "none";
+categoryMenu.style.display= "none";
      
 }
 
@@ -310,4 +324,87 @@ moveMenu.addEventListener("mouseenter",movingDisplay)
 moveMenu.addEventListener("mouseleave",movingNone)
 
 nav.addEventListener("mouseover",movingMenu);
-nav.addEventListener("mouseleave",closeMenu)
+nav.addEventListener("mouseleave",closeMenu);
+
+//category Menu
+
+
+
+function categoryMenuFunction(e){
+
+    category.forEach((item)=>{
+        let li = document.createElement("li");
+        li.classList.add("categoryListItem");
+        let spanOne = document.createElement("span");
+        spanOne.classList.add("spanOne");
+        let spanTwo = document.createElement("span");
+        spanTwo.classList.add("spanTwo");
+        let arrow = '<i class="fa-duotone fa-greater-than"></i>';
+        spanOne.textContent=item.header;
+        spanTwo.innerHTML =arrow;
+        li.appendChild(spanOne);
+        li.appendChild(spanTwo);
+        categoryOne.appendChild(li);
+    })
+}
+
+
+
+categoryMenuFunction()
+
+let mainCategoryList = document.querySelectorAll("#categoryMenuOne li");
+let categoryMenuTwo = document.getElementById("categoryMenuTwo");
+
+
+
+
+function categorySubListFunction(){
+    categoryMenuTwo.style.display ="block"
+    categoryMenuTwo.innerHTML = "";
+    submenuData.subMenu.forEach((item)=>{
+       
+        let li = document.createElement("li");
+        li.classList.add("categoryListItem");
+        let spanOne = document.createElement("span");
+        spanOne.classList.add("spanOne");
+        // let spanTwo = document.createElement("span");
+        // spanTwo.classList.add("spanTwo");
+        // let arrow = '<i class="fa-duotone fa-greater-than"></i>';
+        spanOne.textContent=item;
+        // spanTwo.innerHTML =arrow;
+        li.appendChild(spanOne);
+        // li.appendChild(spanTwo);
+        categoryMenuTwo.appendChild(li);
+
+    })
+   
+}
+
+function highlightList(){
+    mainCategoryList.forEach((item)=>{
+        let firstChild = item.firstChild;
+        item.style.color = "black"
+        if(submenuData){
+           if(firstChild.textContent === submenuData.header){
+            item.style.color = "blue"
+           }
+        }
+
+        
+    })
+}
+
+function categoryMainListFunction(e){
+     let firstChild = e.currentTarget.firstChild;
+     submenuData = category.find((item)=>{
+        return item.header === firstChild.textContent;
+     });
+
+     categorySubListFunction();
+     highlightList()
+}
+
+
+mainCategoryList.forEach((item)=>{
+    item.addEventListener("mouseenter", categoryMainListFunction)
+})

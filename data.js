@@ -140,3 +140,40 @@ export  let course = [
        myArray:myArray
     },
 ]
+
+
+
+
+export let category = [
+
+    {header:"Development",
+    subMenu:["Web Development", "Data Science", "Mobile Development", "Programming Languages","Game Development", "Database Design & Developement", "Software Testing", "Software Engineering", "Software Developement Tools", "No-Code Development" ]},
+    {header:"Business",
+    subMenu:["Entreprenuership","Communication","Management", "Sales", "Business Strategy", "Operations","Project Management","Business Law", "Business Analytics","Intelligence","Human resources", "industry", "Ecommerce", "Media", "Real Estate", "Other Business" ]},
+    {header:"Finance and Accounting",
+    subMenu:["Acounting & Bookkeeping","Compliance","Cryptocurrency & Blockchain", "Economics", "Finance", "Finance Cert & Exam Prep",
+"Investing & Trading", "Money Management Tools", "Taxes", "Other Finance & Accounting"]},
+    {header:"IT & Software",
+    subMenu:["IT Certifications", "Network and Security", "Hardware", "Operationg Systems & Servers", "Other IT & Software"]},
+    {header:"Office Productivity",
+    subMenu:["Microsoft", "Apple", "Google", "SAP", "Oracle", "Other-Office Productivity"]},
+    {header:"Personal Development",
+    subMenu:["Personal Information", "Personal Productivity", "Leadership", "Career Development", "Parenting & Relationships", "Happiness","Esoteric Practices","Religion & Spirituality", "Personal Brand Building", "Creativity", "Influence","Self Esteem & Confidence", "Stress Management", "Memory & Study Skills", "Motivation"]},
+    {header:"Design",
+    subMenu:["Web Design", "Graphic Design & Illustration", "Design Tools", "User Experience Design", "Game Design", "3D & Animation", "Fashion Design", "Architectural Design", "Interioir Design", "Other Design"]},
+    {header:"Marketing",
+    subMenu:["Digital Marketing", "Search Engine Optimization", "Social Media marketing", "Branding", "Marketing Fundamentals", "Marketing Analytics & Automation", 
+"Public Relations", "Paid Advertising", "Video & Mobile Marketing", "Content Marketing", "Growth Hacking", "Affiliate Marketing", "Product Marketing", "Other Marketing"]},
+    {header:"Lifestyle",
+    subMenu:["Arts & Crafts", "Beauty & Makeup", "Esoteric Practices", "Food & Beverage", "Gaming", "Home Improvement & Gardening", "Pet Care & Training", "Travel", "Other lifestyle"]},
+    {header:"Photography & Video",
+    subMenu:["Digital Photography","Photography","Portrait Photography","photography Tools", "Commwercial Photography", "Video Design", "Other photography"]},
+    {header:"Health & Fitness",
+    subMenu:["Fitness", "General Health", "Sports", "Nutrition & Diet", "Yoga", "Mental Health", "Martial Arts & Self Defense", "Safety & First Aid", "Dance", "Meditation", "Other Health & Fitness"]},
+    {header:"Music",
+    subMenu:["Instruments", "Music Production", "Music Fundamentals", "Vocals","Music Software", "Other Music"]},
+    {header:"Teaching & Academics",
+    subMenu:["Engineering", "Humanities", "Math","Science","Online Education","Social Science","Language Learning", "Teacher Training", "Test Prep", "Other Teaching & Academics"]},
+    
+        
+]

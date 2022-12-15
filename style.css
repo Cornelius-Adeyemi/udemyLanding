@@ -39,6 +39,7 @@ button{
     display: flex;
     align-items: center;
     cursor: pointer;
+    
 }
 
 .nav-text{
@@ -73,6 +74,7 @@ button{
     display: flex;
     align-items: center;
     position: relative;
+   
 }
 
 #input > input{
@@ -80,6 +82,7 @@ button{
    border-radius: 25px;
    height: 95%;
    padding-left: 50px;
+   background-color: rgba(245, 241, 241,0.5);
 }
 
 .inputsearch{
@@ -1057,4 +1060,52 @@ footer{
     color: blue !important;
     border: none !important;
     font-weight: bold;
+}
+
+
+
+#categoryMenu{
+    position: absolute;
+  
+    height: 100vh;
+    z-index: 20000;
+    background-color: white;
+    top:59.5px;
+    display: none;
+    justify-content: space-between;
+    border-top:4px solid rgba(0, 0, 0,0.05);
+}
+
+#categoryMenuOne, #categoryMenuTwo{
+    width: 250px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 7.5px;
+}
+
+#categoryMenuOne{
+    border: 1px solid rgba(36, 36, 36, 0.2);
+}
+
+#categoryMenuTwo{
+    border-top: 1px solid rgba(36, 36, 36, 0.2);
+    border-right: 1px solid rgba(36, 36, 36, 0.2);
+    border-bottom: 1px solid rgba(36, 36, 36, 0.2);
+    display: none;
+
+}
+
+
+.categoryListItem{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 7.5px;
+    padding-bottom: 7.5px;
+    
+
+}
+
+.spanTwo .fa-greater-than{
+    font-weight: bolder !important;
 }
