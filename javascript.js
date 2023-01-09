@@ -10,6 +10,11 @@ let submenuData;
 const courseContainer = document.getElementById("courseCardList");
 let number;
 
+const mobileIcon = document.getElementById("mobileMenu");
+const menuContainer = document.getElementById("newMobileMenu");
+const closeMenuB = document.getElementById("staticMobile");
+const mobileListContainer = document.getElementById("menuList");
+
 let categoryOne = document.querySelector("#categoryMenuOne");
 let categoryMenu = document.getElementById("categoryMenu");
 
@@ -100,6 +105,13 @@ function changeDisplay(){
       
     }
 
+    
+function closeMobileMenu(e){
+    menuContainer.classList.remove("activeMobile");
+    document.body.style.overflow = "inherit";
+}
+
+
 // to change the number of course in view
 
 function screenFunction(){
@@ -125,6 +137,11 @@ function screenFunction(){
 
      changeDisplay()
     
+
+    if(window.innerWidth> 800){
+        closeMobileMenu()
+    }
+
  }
 
  screenFunction()
@@ -408,3 +425,84 @@ function categoryMainListFunction(e){
 mainCategoryList.forEach((item)=>{
     item.addEventListener("mouseenter", categoryMainListFunction)
 })
+
+
+// mobilemenu section
+
+
+
+function sectionOneDisplay(e){
+    category.forEach((item)=>{
+        let li = document.createElement("li");
+        li.classList.add("menuListItem");
+        let spanOne = document.createElement("span");
+        spanOne.classList.add("spanOne");
+        let spanTwo = document.createElement("span");
+        spanTwo.classList.add("menuSpanTwo");
+        let arrow = '<i class="fa-duotone fa-greater-than"></i>';
+        spanOne.textContent=item.header;
+        spanTwo.innerHTML =arrow;
+        li.appendChild(spanOne);
+        li.appendChild(spanTwo);
+        mobileListContainer.appendChild(li);
+    })
+}
+sectionOneDisplay();
+
+const mobileMenuList = document.querySelectorAll("#menuList li");
+const mobilePartOne = document.querySelector(".mobilePartOne");
+const mobilePartTwo = document.querySelector(".mobilePartTwo");
+const back = document.getElementById("return")
+const submenuContainer = document.getElementById("submenuContainer");
+
+function activateMobileMenu(e){
+  menuContainer.classList.add("activeMobile");
+  document.body.style.overflow = "hidden";
+}
+
+
+mobileIcon.addEventListener("click",activateMobileMenu);
+
+closeMenuB.addEventListener("click",closeMobileMenu);
+
+let mobileSubMenu;
+
+function addClickEventToMenuList(){
+    mobileMenuList.forEach((item)=>{
+       item.addEventListener("click", clickMenu)  
+    })  
+
+}
+
+addClickEventToMenuList();
+
+
+
+
+function clickMenu(e){
+ let text = e.currentTarget.firstChild.textContent;
+ 
+  mobileSubMenu = category.find((a,b)=> a.header === text);
+   subMenuPage()
+  mobilePartOne.classList.add("mobilePartOneDeactive");
+  mobilePartTwo.classList.add("mobilePartTwoActive");
+  
+  
+}
+
+function subMenuPage(){
+    submenuContainer.innerHTML="";
+    mobileSubMenu.subMenu.forEach((a,b)=>{
+      let li = document.createElement("li");
+      
+      li.textContent = a;
+      submenuContainer.appendChild(li)
+    })
+}
+
+function backFunction(){
+    mobilePartOne.classList.remove("mobilePartOneDeactive");
+  mobilePartTwo.classList.remove("mobilePartTwoActive");
+}
+
+back.addEventListener("click", backFunction)
